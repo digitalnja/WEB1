@@ -4,6 +4,7 @@ import com.ivanlechtmec.web1.dto.ProductDTO;
 import com.ivanlechtmec.web1.dto.mapping.ProductMapping;
 import com.ivanlechtmec.web1.model.Product;
 import com.ivanlechtmec.web1.repository.ProductRepository;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class ProductService {
                 (() -> new EntityNotFoundException(String.format("Товар с ID %d не найдет", id)));
 
     }
+
 
     public List<Product> getProductByNamePrefix(String prefix){
         return productRepository.getProductByName(prefix);
